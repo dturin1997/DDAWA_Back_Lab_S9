@@ -12,7 +12,7 @@ export const findAll = async (req, res) => {
 
 export const findOne = async (req, res) => {
     try {
-        const id = Number(req.params);
+        const id = Number(req.params.id);
         const product = await prisma.product.findUnique({
             where: { id },
         });
@@ -35,7 +35,7 @@ export const create = async (req, res) => {
 
 export const update = async (req, res) => {
     try {
-        const id = Number(req.params);
+        const id = Number(req.params.id);
         const product = await prisma.product.update({
             where: { id },
             data: req.body,
@@ -48,7 +48,7 @@ export const update = async (req, res) => {
 
 export const remove = async (req, res) => {
     try {
-        const id = Number(req.params);
+        const id = Number(req.params.id);
         const product = await prisma.product.delete({
             where: { id },
         });
